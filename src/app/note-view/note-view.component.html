@@ -1,3 +1,19 @@
-<p>
-  note-view works!
-</p>
+<div class="jumbotron" *ngIf="note">
+  <h3 *ngIf="!editTitle" (click)="setEditTitle(true)">{{ note.title }}</h3>
+  <input *ngIf="editTitle" name="title" id="title" class="form-control input-lg" type="text" minlength="1" maxlength="60" placeholder="type title here" required [(ngModel)]="note.title" (keyup.enter)="setEditTitle(false)" (blur)="setEditTitle(false)" />
+<!--   <div *ngIf="title.invalid && (title.dirty || title.touched)" class="alert alert-danger">
+    <div *ngIf="title.errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="title.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="title.errors.forbiddenName">
+      Name cannot be Bob.
+    </div> -->
+    <hr/>
+    <p *ngIf="!editContent" (click)="setEditContent(true)">{{ note.content }}</p>
+    <textarea *ngIf="editContent" class="form-control input-sm" placeholder="type text here" name="content" [(ngModel)]="note.content" (keyup.enter)="setEditContent(false)" (blur)="setEditContent(false)">
+    </textarea>
+  </div>
+  <!-- (blur)="toggleEditTitle()" -->
