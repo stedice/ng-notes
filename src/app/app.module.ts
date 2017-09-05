@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteViewComponent } from './note-view/note-view.component';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoteListComponent,
     NoteViewComponent,
-    CategoryListComponent
+    CategoryListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule, 

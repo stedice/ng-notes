@@ -1,4 +1,40 @@
-.form-control:focus{
+.form-control: focus {
     border-color: none;
     box-shadow: none;
+}
+
+.cat-red {
+    background-color: #f8d7da !important; 
+}
+
+.cat-green {
+    background-color: #d4edda !important; 
+}
+
+.cat-blue {
+    background-color: #cce5ff !important; 
+}
+
+.cat-yellow {
+    background-color: #fff3cd !important; 
+}
+
+.cat-purple {
+    background-color: #dcd1f1 !important; 
+}
+
+.cat-pink {
+    background-color: #fdd6f1 !important; 
+}
+
+.cat-orange {
+    background-color: #efc6aa !important; 
+}
+
+.cat-dark {
+    background-color: #d6d8d9 !important; 
+}
+
+.cat-light {
+    background-color: #fefefe !important; 
 }

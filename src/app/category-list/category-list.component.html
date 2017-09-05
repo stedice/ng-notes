@@ -1,3 +1,50 @@
-<p>
-  category-list works!
-</p>
+<div class="modal fade" id="categoriesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Categories</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="true">
+          <ul class="list-group ">
+            <li class="list-group-item bg-{{cat.color}}" *ngFor="let cat of categories">
+              <form class="form-inline">
+                <div class="row justify-content-between">
+                  <div class="col">
+                    <input name="category-name" class="form-control" type="text" minlength="1" maxlength="12" placeholder="type category name here" required [(ngModel)]="cat.name" />
+                  </div>
+                  <div class="col">
+                    <select name="color" class="form-control" [(ngModel)]="cat.color">
+                      <option value='primary'>Blue</option>
+                      <option value='secondary'>Grey</option>
+                      <option value='success'>Green</option>
+                      <option value='danger'>Red</option>
+                      <option value='warning'>Yellow</option>
+                      <option value='info'>Turquoise</option>
+                      <option value='light'>White</option>
+                      <option value='dark'>Black</option>
+                    </select>
+                  </div>
+                  <div class="col">
+                    <button type="button" class="btn" role="button" aria-disabled="true" (click)="removeCategory(cat)">
+                      <span class="fa fa-trash-o"></span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="addCategory()">
+          <span class="fa fa-plus"></span> Add new Category
+        </button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

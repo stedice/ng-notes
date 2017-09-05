@@ -1,43 +1,36 @@
 <header>
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-dark bg-dark justify-content-between">
     <div class="navbar-header">
       <a href="/" class="navbar-brand">{{title}}</a>
     </div>
+    <app-navbar></app-navbar>
   </nav>
 </header>
-
 <main>
+  <br/>
   <div class="row">
     <div class="col-sm-4">
-
       <div *ngIf="notes">
-      <ul class="list-group ">
-        <li class="list-group-item"
-          *ngFor="let note of notes?.reverse()"
-          (click)="selectNote(note)"
-          [class.active]="note === activeNote">
-          {{ note.title | slice:0:20 }}{{ note.title.length > 20 ? '...' : ''}}     
-          <h6><small>{{ note.created | date: 'd MMM y, H:m' }}</small></h6>
-        </li>
-      </ul>
+        <ul class="list-group ">
+          <li class="list-group-item" *ngFor="let note of notes?.reverse()" (click)="selectNote(note)" [class.active]="note === activeNote">
+            {{ note.title | slice:0:20 }}{{ note.title.length > 20 ? '...' : ''}}
+            <span class="badge badge-{{getCategory(note).color}} pull-right">{{getCategory(note).name}}</span>
+            <h6><small>{{ note.created | date: 'd MMM y, H:m' }}</small></h6>
+          </li>
+        </ul>
       </div>
-
-<!--       <user-form (userCreated)="onUserCreated($event)"></user-form>
+      <app-category-list></app-category-list>
+      <!--       <user-form (userCreated)="onUserCreated($event)"></user-form>
  -->
     </div>
     <div class="col-sm-8">
-
       <app-note-view [note]="activeNote"></app-note-view>
-
       <div class="jumbotron" *ngIf="!activeNote">
-        <span class="glyphicon glyphicon-hand-left" aria-hidden="true"></span>
-        <h2>Choose a Note</h2>
+        <h2><span class="fa fa-hand-o-left" aria-hidden="true"></span> Select a Note</h2>
       </div>
-
     </div>
-  </div>      
+  </div>
 </main>
-
 <footer class="text-center">
   Copyright &copy; 2017
 </footer>
