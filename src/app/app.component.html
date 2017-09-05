@@ -3,25 +3,16 @@
     <div class="navbar-header">
       <a href="/" class="navbar-brand">{{title}}</a>
     </div>
-    <app-navbar></app-navbar>
+    <app-navbar [activeNote]="!!activeNote" [addNote]="addNote" [removeNote]="removeNote"></app-navbar>
   </nav>
 </header>
 <main>
   <br/>
   <div class="row">
     <div class="col-sm-4">
-      <div *ngIf="notes">
-        <ul class="list-group ">
-          <li class="list-group-item" *ngFor="let note of notes?.reverse()" (click)="selectNote(note)" [class.active]="note === activeNote">
-            {{ note.title | slice:0:20 }}{{ note.title.length > 20 ? '...' : ''}}
-            <span class="badge badge-{{getCategory(note).color}} pull-right">{{getCategory(note).name}}</span>
-            <h6><small>{{ note.created | date: 'd MMM y, H:m' }}</small></h6>
-          </li>
-        </ul>
-      </div>
-      <app-category-list></app-category-list>
-      <!--       <user-form (userCreated)="onUserCreated($event)"></user-form>
- -->
+    <app-note-list [notes]="notes" [activeNote]="activeNote" [selectNote]="selectNote" [getCategory]="getCategory"></app-note-list>
+
+
     </div>
     <div class="col-sm-8">
       <app-note-view [note]="activeNote"></app-note-view>
@@ -29,7 +20,8 @@
         <h2><span class="fa fa-hand-o-left" aria-hidden="true"></span> Select a Note</h2>
       </div>
     </div>
-  </div>
+  </div>      
+  <app-category-list></app-category-list>
 </main>
 <footer class="text-center">
   Copyright &copy; 2017

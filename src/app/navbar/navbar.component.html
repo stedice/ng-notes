@@ -3,13 +3,13 @@
     <button type="button" class="btn btn-dark btn-lg" title="Edit Categories" aria-expanded="false" aria-label="Edit Categories" data-toggle="modal" data-target="#categoriesModal">
       <span class="fa fa-gear"></span>
     </button>
-    <button type="button" class="btn btn-dark btn-lg" title="Change View" aria-expanded="false" aria-label="Change View">
+<!--     <button type="button" class="btn btn-dark btn-lg" title="Change View" aria-expanded="false" aria-label="Change View">
       <span class="fa fa-list"></span>
-    </button>
-    <button type="button" class="btn btn-dark btn-lg" title="Remove selected Note" aria-expanded="false" aria-label="Remove selected Note">
+    </button> -->
+    <button type="button" class="btn btn-dark btn-lg" title="Remove selected Note" aria-expanded="false" aria-label="Remove selected Note" (click)="removeNote()" [disabled]="!activeNote">
       <span class="fa fa-trash-o"></span>
     </button>
-    <button type="button" class="btn btn-dark btn-lg" title="Add a Note" aria-expanded="false" aria-label="Add a Note">
+    <button type="button" class="btn btn-dark btn-lg" title="Add a Note" aria-expanded="false" aria-label="Add a Note" (click)="addNote()">
       <span class="fa fa-plus"></span>
     </button>
   </div>

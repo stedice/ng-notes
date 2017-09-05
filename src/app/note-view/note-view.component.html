@@ -1,11 +1,18 @@
-<div class="jumbotron bg-{{getCategory(note).color}}" *ngIf="note">
-  <h3 *ngIf="!editTitle" (click)="setEditTitle(true)">{{ note.title }}</h3>
-                <form class="form-inline" *ngIf="editTitle">
-
-  <input  name="title" id="title" class="form-control input-lg" type="text" minlength="1" maxlength="60" placeholder="type title here" required [(ngModel)]="note.title" (keyup.enter)="setEditTitle(false)" (blur)="setEditTitle(false)" />
-  </form>
-  <hr/>
-  <p *ngIf="!editContent" (click)="setEditContent(true)">{{ note.content }}</p>
-  <textarea *ngIf="editContent" class="form-control input-sm" placeholder="type text here" name="content" [(ngModel)]="note.content" (keyup.enter)="setEditContent(false)" (blur)="setEditContent(false)">
-  </textarea>
+<div class="card border-{{getCategory(note).color}}" *ngIf="note">
+  <div class="card-header border-{{getCategory(note).color}} bg-{{getCategory(note).color}} text-white">
+    <h4 *ngIf="!editTitle" (click)="setEditTitle(true)">{{ note.title }}</h4>
+    <form class="form-inline" *ngIf="editTitle">
+      <input name="title" id="title" class="form-control" type="text" minlength="1" maxlength="60" placeholder="type title here" required [(ngModel)]="note.title" (keyup.enter)="setEditTitle(false)" (blur)="setEditTitle(false)" />
+      <select name="color" class="form-control" [(ngModel)]="note.category">
+        <option *ngFor="let cat of categories" [ngValue]="cat.id">
+          {{cat.name}}
+        </option>
+      </select>
+    </form>
+  </div>
+  <div class="card-body">
+    <p *ngIf="!editContent" class="card-text bg-transparent" (click)="setEditContent(true)">{{ note.content }}</p>
+    <textarea *ngIf="editContent" class="form-control input-sm" placeholder="type text here" name="content" [(ngModel)]="note.content" (keyup.enter)="setEditContent(false)" (blur)="setEditContent(false)">
+    </textarea>
+  </div>
 </div>

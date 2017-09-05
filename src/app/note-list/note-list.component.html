@@ -1,3 +1,9 @@
-<p>
-  note-list works!
-</p>
+<div *ngIf="notes">
+  <ul class="list-group ">
+    <li class="list-group-item" *ngFor="let note of notes?.reverse()" (click)="selectNote(note)" [class.active]="note === activeNote">
+      {{ note.title | slice:0:20 }}{{ note.title.length > 20 ? '...' : ''}}
+      <span class="badge badge-{{getCategory(note).color}} pull-right">{{getCategory(note).name}}</span>
+      <h6><small>{{ note.created | date: 'd MMM y, H:m' }}</small></h6>
+    </li>
+  </ul>
+</div>
