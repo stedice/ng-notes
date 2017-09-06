@@ -23,10 +23,6 @@ export class CategoriesService {
     return this.list.find( x => x.id === id);
   }
 
-  setCategory = (category) => {
-
-  }
-
   addCategory = (newCategory) => {
     this.list.push(newCategory);
   }

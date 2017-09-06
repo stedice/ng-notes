@@ -3,16 +3,21 @@
     <div class="navbar-header">
       <a href="/" class="navbar-brand">{{title}}</a>
     </div>
-    <app-navbar [activeNote]="!!activeNote" [addNote]="addNote" [removeNote]="removeNote"></app-navbar>
+    <app-navbar [activeNote]="!!activeNote" 
+                [addNote]="addNote" 
+                [removeNote]="removeNote">
+    </app-navbar>
   </nav>
 </header>
 <main>
   <br/>
   <div class="row">
     <div class="col-sm-4">
-    <app-note-list [notes]="notes" [activeNote]="activeNote" [selectNote]="selectNote" [getCategory]="getCategory"></app-note-list>
-
-
+      <app-note-list [notes]="notes" 
+                     [activeNote]="activeNote" 
+                     [selectNote]="selectNote" 
+                     [getCategory]="getCategory">
+      </app-note-list>
     </div>
     <div class="col-sm-8">
       <app-note-view [note]="activeNote"></app-note-view>
@@ -20,7 +25,7 @@
         <h2><span class="fa fa-hand-o-left" aria-hidden="true"></span> Select a Note</h2>
       </div>
     </div>
-  </div>      
+  </div>
   <app-category-list></app-category-list>
 </main>
 <footer class="text-center">

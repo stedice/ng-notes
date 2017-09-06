@@ -34,14 +34,11 @@ export class AppComponent {
     return this.categoryService.getCategory(note.category);
   }
 
-  getCategoryName = (note) => {
-    return this.categoryService.getCategory(note.category).name;
-  }
-
   addNote = () => {
     const date = new Date().toJSON();
     const newNote: Note = {id: this.currentId++, title: 'untitled', content: '...', category: 1, created: date};
     this.notes.push(newNote);
+    this.activeNote = newNote;
   }
 
   removeNote = (note:Note = this.activeNote) => {
