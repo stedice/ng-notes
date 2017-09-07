@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { Note } from '../../classes/note';
-import { Category } from '../../classes/category';
-import { CategoryService } from '../../services/category.service';
+import { Note } from './classes/note';
+import { Category } from './classes/category';
+import { CategoriesService } from './services/categories.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [CategoryService]
+  providers: [CategoriesService]
 })
 
 export class AppComponent {
@@ -21,9 +21,9 @@ export class AppComponent {
   ];
   activeNote: Note;
 
-  constructor(private categoryService: CategoryService){
+  constructor(private categoryService: CategoriesService){
     this.currentId = this.notes.map( el => el.id )
-                               .reduce( (max, cur) => Math.max( max, cur ), 0 ) + 1;
+                                    .reduce( (max, cur) => Math.max( max, cur ), 0 ) + 1;
   }
 
   selectNote = (note) => {

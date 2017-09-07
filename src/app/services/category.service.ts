@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Category } from '../classes/category';
 
 @Injectable()
-export class CategoriesService {
+export class CategoryService {
 	list: Category[] = [
     { id: 1, name: 'Home', color: 'success'},
     { id: 2, name: 'Work', color: 'danger'},

@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import { Note } from '../../classes/note';
 import { Category } from '../../classes/category';
-import { CategoriesService } from '../../services/categories.service';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-note-view',
   templateUrl: './note-view.component.html',
   styleUrls: ['./note-view.component.css'],
-  providers: [CategoriesService]
+  providers: [CategoryService]
 })
 
 export class NoteViewComponent {
@@ -16,7 +16,7 @@ export class NoteViewComponent {
   editContent: Boolean = false;
   categories: Category[];
 
-  constructor(private categoryService: CategoriesService) {
+  constructor(private categoryService: CategoryService) {
     this.categories = this.categoryService.getCategories();
   }
 
