@@ -39,11 +39,19 @@ export class AppComponent {
     this.activeNote = undefined;
   }
 
+  removeAllNotes = (cat:Category) => {
+    this.notes.forEach((note) =>{
+      if(note.category === cat.id) {
+        this.noteService.removeNote(note);
+      }
+    });
+  }
+
   getCategories = () => {
     return this.categoryService.getCategories();
   }
 
-  getCategory = (note) => {
+  getCategory = (note) : Category => {
     return this.categories.find(x => x.id === note.category);
   }
 

@@ -40,7 +40,7 @@ export class CategoryService {
 
   removeCategory = (cat:Category) => {
     const i = this.list.indexOf(cat);
-    if (i !== -1) {
+    if (i !== -1 && cat.id !== 1) {  
         this.list.splice(i, 1);
     }
     return this.list;

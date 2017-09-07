@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component, Input, Output, EventEmitter} from '@angular/core';
 import { Category } from '../../classes/category';
 import { CategoryService } from '../../services/category.service';
  
@@ -9,9 +9,11 @@ import { CategoryService } from '../../services/category.service';
   providers: [CategoryService]
 })
 export class CategoryListComponent {
+  @Input() removeAllNotes: Function;
   @Output() categoriesUpdated = new EventEmitter();
   categories: Category[];
   currentId: number;
+  catSelected: Category;
 
   constructor(private categoryService: CategoryService) {
     this.categories = this.categoryService.getCategories();
@@ -20,15 +22,19 @@ export class CategoryListComponent {
   }
 
   addCategory = () => {
-    const newCat: Category = {id: this.currentId++, name: 'unnamed', color: 'primary' };
-    this.categories.push(newCat);
+    this.categoryService.addCategory()
   }
 
   removeCategory = (cat:Category) => {
-    const i = this.categories.indexOf(cat);
-    if (i !== -1) {
-        this.categories.splice(i, 1);
+    //delete all notes in category
+    if(cat && cat.id !==1) {  //don't remove category with id=1
+      this.removeAllNotes(cat)
+      this.categoryService.removeCategory(cat);
     }
+  }
+
+  selectCategory = (cat:Category) => {
+    this.catSelected = cat;
   }
 
   save = () => {

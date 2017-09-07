@@ -28,7 +28,9 @@
       </div>
     </div>
   </div>
-  <app-category-list (categoriesUpdated)="updateCategories($event)"></app-category-list>
+  <app-category-list (categoriesUpdated)="updateCategories($event)"
+                     [removeAllNotes]="removeAllNotes">  
+  </app-category-list>
 </main>
 <footer class="text-center">
   Copyright &copy; 2017
