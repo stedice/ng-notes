@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Note } from './note';
-import { Category } from './category';
-import { CategoriesService } from './categories.service';
+import { Note } from '../../classes/note';
+import { Category } from '../../classes/category';
+import { CategoriesService } from '../../services/categories.service';
 
 @Component({
   selector: 'app-root',
