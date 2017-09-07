@@ -20,13 +20,15 @@
       </app-note-list>
     </div>
     <div class="col-sm-8">
-      <app-note-view [note]="activeNote"></app-note-view>
+      <app-note-view [note]="activeNote" 
+                     [categories]="categories">
+      </app-note-view>
       <div class="jumbotron" *ngIf="!activeNote">
         <h2><span class="fa fa-hand-o-left" aria-hidden="true"></span> Select a Note</h2>
       </div>
     </div>
   </div>
-  <app-category-list></app-category-list>
+  <app-category-list (categoriesUpdated)="updateCategories($event)"></app-category-list>
 </main>
 <footer class="text-center">
   Copyright &copy; 2017

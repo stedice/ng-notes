@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter} from '@angular/core';
 import { Category } from '../../classes/category';
 import { CategoryService } from '../../services/category.service';
  
@@ -9,6 +9,7 @@ import { CategoryService } from '../../services/category.service';
   providers: [CategoryService]
 })
 export class CategoryListComponent {
+  @Output() categoriesUpdated = new EventEmitter();
   categories: Category[];
   currentId: number;
 
@@ -28,5 +29,9 @@ export class CategoryListComponent {
     if (i !== -1) {
         this.categories.splice(i, 1);
     }
+  }
+
+  save = () => {
+    this.categoriesUpdated.emit({ categories: this.categories });
   }
 }

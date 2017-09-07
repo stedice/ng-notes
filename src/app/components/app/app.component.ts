@@ -47,5 +47,9 @@ export class AppComponent {
     return this.categories.find(x => x.id === note.category);
   }
 
+  updateCategories = (event) => {
+    this.categories = event.categories;
+  }
+
 
 }

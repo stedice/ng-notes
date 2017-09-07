@@ -1,23 +1,24 @@
 import { Component, Input } from '@angular/core';
 import { Note } from '../../classes/note';
 import { Category } from '../../classes/category';
-import { CategoryService } from '../../services/category.service';
+//import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-note-view',
   templateUrl: './note-view.component.html',
   styleUrls: ['./note-view.component.css'],
-  providers: [CategoryService]
+  //providers: []//CategoryService]
 })
 
 export class NoteViewComponent {
   @Input() note: Note;
+  @Input() categories: Category[];
   editTitle: Boolean = false;
   editContent: Boolean = false;
-  categories: Category[];
+  //categories: Category[];
 
-  constructor(private categoryService: CategoryService) {
-    this.categories = this.categoryService.getCategories();
+  constructor(){//private categoryService: CategoryService) {
+    //this.categories = this.categoryService.getCategories();
   }
 
   setEditTitle = (value) => {
@@ -33,7 +34,8 @@ export class NoteViewComponent {
   }
 
   getCategory = (note) => {
-    return this.categoryService.getCategory(note.category);
+    return this.categories.find((x) => x.id === note.category);
+    //return this.categoryService.getCategory(note.category);
   }
 
 }

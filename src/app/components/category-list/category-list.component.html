@@ -24,7 +24,6 @@
                       <option value='danger'>Red</option>
                       <option value='warning'>Yellow</option>
                       <option value='info'>Turquoise</option>
-                      <option value='light'>White</option>
                       <option value='dark'>Black</option>
                     </select>
                   </div>
@@ -43,7 +42,8 @@
         <button type="button" class="btn btn-success" (click)="addCategory()">
           <span class="fa fa-plus"></span> Add new Category
         </button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="save()"data-dismiss="modal">Save</button>
       </div>
     </div>
   </div>
